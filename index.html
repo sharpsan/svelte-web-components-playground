@@ -1,74 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test</title>
     <script src="./dist/index.js"></script>
 
     <script>
-        const myGlobalVal = 'me2';
+      const myGlobalVal = "me2";
     </script>
+  </head>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-
-</head>
-
-<body>
-    <my-component myPrimativeVal="Pass in string data" complexData=""></my-component>
+  <body>
+    <!-- <my-component
+      myPrimativeVal="Pass in string data"
+      complexData=""
+    ></my-component>
 
     <div id="someDiv"></div>
 
     <time-entry-card></time-entry-card>
 
-    <time-entry-card></time-entry-card>
+     -->
 
-    <time-entry-card></time-entry-card>
+    <time-entry-card date="today" username="gtest" hours="2"></time-entry-card>
 
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
+    <div id="time-entries-container"></div>
 
     <script>
-        /*
+      /*
             Create the element programmatically.
 
             NOTE: This needs to go at the bottom of the page, just before the closing body tag
             
          */
-        const someDiv = document.getElementById('someDiv');
-        const component = document.createElement('my-component');
-        component.myComplexVal = {
-            name: 'John Doe',
-            age: 30,
-            address: {
-                street: '123 Main St',
-                city: 'Anytown',
-                state: 'NY',
-                zip: '12345'
-            }
+      //   const someDiv = document.getElementById("someDiv");
+      //   const component = document.createElement("my-component");
+      //   component.myComplexVal = {
+      //     name: "John Doe",
+      //     age: 30,
+      //     address: {
+      //       street: "123 Main St",
+      //       city: "Anytown",
+      //       state: "NY",
+      //       zip: "12345",
+      //     },
+      //   };
+      //   someDiv.appendChild(component);
 
-        };
-        someDiv.appendChild(component);
+      var container = document.getElementById("time-entries-container");
+      var data = [
+        {
+          date: "4/15/2024, 9:55:00 AM",
+          username: "jkester",
+          hours: "0.5",
+          description:
+            "Replied to Wes' email reg invoice 64253 reg the amount being tied to all shipping charges for the 7 boxes from our warehouse to Australia.",
+        },
+        {
+          date: "1/15/2024, 9:55:00 AM",
+          username: "gtest",
+          hours: "2",
+          description: "Test description",
+        },
+      ];
+      data.forEach((entry) => {
+        const timeEntryCard = document.createElement("time-entry-card");
+        timeEntryCard.date = entry.date;
+        timeEntryCard.username = entry.username;
+        timeEntryCard.hours = entry.hours;
+        timeEntryCard.description = entry.description;
+        container.appendChild(timeEntryCard);
+      });
     </script>
-</body>
-
+  </body>
 </html>

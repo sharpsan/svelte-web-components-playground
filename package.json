@@ -24,6 +24,8 @@
     "dist"
   ],
   "dependencies": {
+    "bootstrap": "4.6",
+    "jquery": "^3.7.1",
     "watch": "^1.0.2"
   }
 }

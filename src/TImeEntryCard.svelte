@@ -1,19 +1,29 @@
 <svelte:options customElement="time-entry-card" />
 
 <script>
-    import ComponentBase from "./ComponentBase.svelte";
+  //   import "base.js";
+
+  export let date = "";
+  export let username = "";
+  export let hours = "";
+  export let description;
 </script>
 
-<ComponentBase />
-
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap" />
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-        </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+<div>
+  <div class="d-flex justify-content-between text-secondary">
+    <div>
+      {date} - {username}
     </div>
+    <div>{hours} Hours</div>
+  </div>
+
+  <div class="bg-light py-3 px-2">
+    {description ?? "No description"}
+  </div>
+
+  <hr />
 </div>
+
+<style>
+  @import "node_modules/bootstrap/dist/css/bootstrap.min.css";
+</style>
