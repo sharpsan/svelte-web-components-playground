@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <script src="./dist/index.js"></script>
+
+    <script>
+        const myGlobalVal = 'me2';
+    </script>
+</head>
+
+<body>
+    <my-component myPrimativeVal="Pass in string data" complexData=""></my-component>
+
+    <div id="someDiv"></div>
+
+    <script>
+        /*
+            Create the element programmatically.
+
+            NOTE: This needs to go at the bottom of the page, just before the closing body tag
+            
+         */
+        const someDiv = document.getElementById('someDiv');
+        const component = document.createElement('my-component');
+        component.myComplexVal = {
+            name: 'John Doe',
+            age: 30,
+            address: {
+                street: '123 Main St',
+                city: 'Anytown',
+                state: 'NY',
+                zip: '12345'
+            }
+
+        };
+        someDiv.appendChild(component);
+    </script>
+</body>
+
+</html>
